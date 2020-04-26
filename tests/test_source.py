@@ -1,4 +1,3 @@
- 
 import unittest
 from app.models import Sources
 
@@ -29,3 +28,5 @@ class SourcesTest(unittest.TestCase):
         self.assertEquals(self.new_source.category, 'general')
         self.assertEquals(self.new_source.country, 'kenya')
         self.assertEquals(self.new_source.language,'en')
+
+
