@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+<!-- Content Block -->
+{% block content %}
+
+    <h2 class="text-center heading">HEADLINES FOR {{ title | upper }}</h2>
+    <div class="article-columns">
+        {{ macro.displayArticles(results) }}
+    </div>
+
+{% endblock content %}

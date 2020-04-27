@@ -1,32 +1,20 @@
 import unittest
-from app.models import Sources
+from app.models import Source
 
 
-class SourcesTest(unittest.TestCase):
-    '''
-    Test case to test the behavior of the Sources class
-    '''
+class SourceTest(unittest.TestCase):
+    """ Test Class to test the behaviour of Source class"""
 
     def setUp(self):
-        '''
-        Setup function that will run before every test
-        '''
-        self.new_source = Sources('kenyanNews', 'My News', 'You are provided with the latest updates', 'https://google.com', 'general',
-                                  'kenya','en')
+        """ Method that runs before every test"""
 
-    def test_instance(self):
-        self.assertTrue(isinstance(self.new_source, Sources))
+        pass
 
-    def test_to_check_instance_variables(self):
-        '''
-        Test function to check instance variables
-        '''
-        self.assertEquals(self.new_source.id, 'kenyanNews')
-        self.assertEquals(self.new_source.name, 'My News')
-        self.assertEquals(self.new_source.description, 'You are provided with the latest updates')
-        self.assertEquals(self.new_source.url, 'https://google.com')
-        self.assertEquals(self.new_source.category, 'general')
-        self.assertEquals(self.new_source.country, 'kenya')
-        self.assertEquals(self.new_source.language,'en')
+    def tearDown(self):
+        """ Method that runs after every test"""
+
+        pass
 
 
+if __name__ == '__main__':
+    unittest.main()

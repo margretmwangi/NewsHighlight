@@ -1,17 +1,20 @@
-{% macro sourceCategory(categories) %}
-    {% for category in categories%}
+{% macro displayArticles(articles_list) %}
 
-    <div class="row">
-        <div class="col-md-4">
-            <h3> {{category.name}} </h3>
+    {% for article in articles_list %}
+        <div class="card">
+            {% if article.urlToImage %}
+                <img class="card-img-top" src="{{ article.urlToImage }}" alt="{{ article.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h4 class="card-title">{{ article.title }}</h4>
+                <p>Source: {{ article.source.name }}</p>
+                <p class="card-text">{{ article.publishedAt }} {% if article.author %}By: {{ article.author }}{% endif %}</p>
+                {% if article.description %}
+                <p class="card-text">{{ article.description }}</p>
+                {% endif %}
+                <p class="text-right"><a href="{{ article.url }}" class="btn btn-outline-primary">Read Full Article</a></p>
+            </div>
         </div>
-        <div class="panel-body">
-            <p> {{category.description|truncate(100)}}
-                <br>
-                <a href="/articles/{{category.id}}&40" class="btn btn-success btn-sm">Read {{category.name}}.</a>
-            </p>            
-        </div>
-    </div>
+    {% endfor %}
 
-{% endfor %} 
 {% endmacro %}
